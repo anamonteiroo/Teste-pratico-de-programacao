@@ -1,52 +1,36 @@
-const express = require('express'); //criar um servidor
-const app = express() //puxando o servidor
-const handlebars = require('express-handlebars') //tipo o html
-const Post = require('./models/Post'); //puxando a parte de posts
+const express = require('express');
+const app = express()
+const handlebars = require('express-handlebars')
+const Post = require('./models/Post');
 
 // Config
-
 // Template Engine
 app.engine('handlebars', handlebars({ defaultLayout: 'main' }))
-app.set('view engine', 'handlebars') //parte tipo html
+app.set('view engine', 'handlebars')
 
-// Salvar dados
+// Save data
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json()); //o que salva o os dados na db
+app.use(express.json());
 
-// Rotas
-
+// Routes
 app.get('/', function(req, res) {
     Post.findAll({
         order: [
             ['id', 'DESC']
         ]
     }).then(function(posts) {
-        res.render('home', { posts: posts })
+        res.render('root', { posts: posts })
     })
-
-})
-app.get('/cad', function(req, res) {
-    res.render('formulário')
 })
 
 app.post('/add', function(req, res) {
     Post.create({
         mensagem: req.body.mensagem
-    }).then(function() {
-        res.redirect('/')
     }).catch(function(erro) {
         res.send("Houve um erro: " + erro)
     })
 })
 
-app.get('/deletar/:id', function(req, res) {
-    Post.destroy({ where: { 'id': req.params.id } }).then(function() {
-        res.send("Postagem deletada com sucesso!")
-    }).catch(function(erro) {
-        res.send("Esta postagem não existe! ")
-    })
-})
-
 app.listen(8081, function() {
-    console.log("Servidor rodando na url http://localhost:8081/cad")
+    console.log("Servidor rodando na url http://localhost:8081")
 })
