@@ -26,6 +26,8 @@ app.get('/', function(req, res) {
 app.post('/add', function(req, res) {
     Post.create({
         mensagem: req.body.mensagem
+    }).then(function() {
+        res.redirect('/')
     }).catch(function(erro) {
         res.send("Houve um erro: " + erro)
     })
