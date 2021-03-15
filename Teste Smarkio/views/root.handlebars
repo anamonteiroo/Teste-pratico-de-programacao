@@ -4,30 +4,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste prático</title>
+    <title>Teste prático de programação - Smarkio</title>
     <style>
-        
+        body {
+            background: white;
+        }
+
+        #boxmsg {
+            background: rgb(238, 237, 237);
+            float: left;
+            position: absolute;
+	        top: 27%;
+	        left: 29%;
+	        transform: translate(-50%, -50%);
+            padding: 50px;
+            width: 500px;
+            margin: auto;
+            text-align: center;
+            font: normal 10pt Arial;
+        }
+
+        #boxposts {
+            background: rgb(238, 237, 237);
+            float: right;
+            position: absolute;
+	        top: 30%;
+	        right: -10%;
+	        transform: translate(-50%, -50%);
+            padding: 10px;
+            width: 500px;
+            margin: auto;
+            text-align: center;
+            font: normal 15pt Arial;
+        }
+
+        #hear{
+            float: right;
+        }
     </style>
 </head>
-<body>
-    <h1>Lista de posts: </h1>
+<body> 
+    <section id="boxmsg">
+        <div id="addmsg">
+            <form action="/add" method="POST">
+            <h1>Comentário: </h1>
+            <textarea name="mensagem"></textarea>
+            <button type="submit" id="register">Cadastrar</button>
+        </div> 
+    </section>
+    <h1></h1>
+    <section id="boxposts">
+        <h1>Comentários: </h1>
 
-<div>
-<form action="/add" method="POST">
-<p>Mensagem: </p>
-<textarea name="mensagem"></textarea>
-<button type="submit">Cadastrar</button>
-</div>
-
-<div>
-{{#each posts}}
-<p>{{dataValues.mensagem}}</p>
-<button>Ouvir</button>
-<hr>
-{{/each}}
-</div>
-
-
-</form>
+        <div id="showmsg">
+            {{#each posts}}
+            <p>{{dataValues.mensagem}}</p>
+            <button id="hear">Ouvir</button>
+            <hr>
+            {{/each}}
+        </div>
+    </section>
 </body>
 </html>
