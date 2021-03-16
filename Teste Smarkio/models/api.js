@@ -9,19 +9,11 @@ const textToSpeech = new TextToSpeechV1({
     serviceUrl: 'https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/d7ea786c-c20a-4ee7-9d93-88e362aef8bd',
 });
 
-const synthesizeParams = {
-    text: 'Olá, mundo!',
-    accept: 'audio/wav',
-    voice: 'pt-BR_IsabelaV3Voice',
-};
 
-textToSpeech.synthesize(synthesizeParams).then((response) => {
-    return textToSpeech.repairWavHeaderStream(response.result);
-}).
 
-then(buffer => {
-    let date = Date.now();
-    let path = `audios/${date}.wav`;
 
-    fs.writeFileSync(path, buffer)
-})
+module.exports = {
+    textToSpeech: textToSpeech,
+    fs: fs
+
+}

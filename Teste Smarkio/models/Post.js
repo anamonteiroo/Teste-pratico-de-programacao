@@ -3,6 +3,9 @@ const db = require('./db')
 const Post = db.sequelize.define('msgusuarios', {
     mensagem: {
         type: db.Sequelize.TEXT
+    },
+    caminho: {
+        type: db.Sequelize.TEXT
     }
 })
 
