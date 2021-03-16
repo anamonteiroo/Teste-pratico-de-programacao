@@ -58,6 +58,6 @@ app.post('/add', function(req, res) {
     });
 })
 
-app.listen(8081, function() {
-    console.log("Servidor rodando na url http://localhost:8081")
+app.listen(3030, function() {
+    console.log("Servidor rodando na url http://localhost:3030")
 })
