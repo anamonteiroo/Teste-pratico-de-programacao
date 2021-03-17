@@ -41,7 +41,7 @@
         }
     </style>
 </head>
-<body> 
+<body>
     <section id="boxmsg">
         <div id="addmsg">
             <form action="/add" method="POST">
@@ -53,11 +53,10 @@
     <h1></h1>
     <section id="boxposts">
         <h1>Comentários: </h1>
-
         <div id="showmsg">
             {{#each posts}}
             <p>{{dataValues.mensagem}}</p>
-            <button id="hear">Ouvir</button>
+            <button>Ouvir</button>
             <hr>
             {{/each}}
         </div>
