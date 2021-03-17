@@ -37,8 +37,6 @@ app.post('/add', function(req, res) {
 
     audio.textToSpeech.synthesize(synthesizeParams)
         .then(response => {
-            // only necessary for wav formats,
-            // otherwise `response.result` can be directly piped to a file
             return audio.textToSpeech.repairWavHeaderStream(response.result);
         })
         .then(buffer => {

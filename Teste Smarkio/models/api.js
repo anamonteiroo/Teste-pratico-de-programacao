@@ -9,9 +9,6 @@ const textToSpeech = new TextToSpeechV1({
     serviceUrl: 'https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/d7ea786c-c20a-4ee7-9d93-88e362aef8bd',
 });
 
-
-
-
 module.exports = {
     textToSpeech: textToSpeech,
     fs: fs
