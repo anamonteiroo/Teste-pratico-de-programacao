@@ -12,9 +12,7 @@ As operações de cadastro e atualização da lista de comentários devem ser re
  
  * Ter o Nodejs
  * Baixar o projeto
- * Criar uma tabela no Mysql como o exemplo abaixo
- mensagem | caminho
- ---|---
+ * Criar uma tabela no Mysql com os campos mensagem | caminho
  * Trocar os dados de **nome da tabela** e **senha** no arquivo db.js
  * Instalar handlebars dentro da pasta do projeto
 
