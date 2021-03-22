@@ -1,4 +1,4 @@
-# Teste prático de programação com API Text to Spreech IBM Watson
+# Teste prático de programação com API Text to Speech IBM Watson
 
 ## Objetivo
 
